@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sanjaya Group</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slide.css">
+</head>
+<body>
+    
+    <!-- logo and menu -->
+    <nav>    
+        <div class="menu">
+            <img class="logoo" src="asset/logo.jpg" alt="logo1">
+            <img class="logooo" src="asset/logo 3.jpg" alt="logo2">
+            <h1 class="logo"><a href="home.html">SANJAYA GROUP</a></h1>
+            <ul>
+                <li class="active"><a href="home.html">HOME</a></li>
+                <li><a href="product.html">OUR PRODUCT</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+        <!-- end logo and menu -->
+
+        <!-- slide show -->
+        <body>
+            <div class="container">
+                <div class="arrow l" onclick="prev()">
+                    <img src="asset/l.png" alt="l">
+                </div>
+                <div class="slide slide-1">
+                    <div class="caption">
+                        <h3>SANJAYA TRADING & LOGISTICS</h3>
+                        <p>PT SANJAYA PUTRA WIDURI ADALAH  PERUSAHAAN YANG BERGERAK DI  BIDANG PERDAGANGAN BESAR,  PRODUKSI DAN LOGISTIK
+                        </p>
+                    </div>
+                </div>
+                <div class="slide slide-2">
+                    <div class="caption">
+                        <h3>Los Angeles</h3>
+                        <p>LA is always so much fun!</p>
+                    </div>
+            </div>
+            <div class="slide slide-3">
+                    <div class="caption">
+                        <h3>Bahar Dar</h3>
+                        <p>Thank you, Bahar Dar!</p>
+                    </div>
+            </div>
+            <div class="arrow r" onclick="next()">
+                    <img src="asset/r.png" alt="r">
+                </div>
+            </div>
+
+            <script>
+                let slide = document.querySelectorAll('.slide');
+                var current = 0;
+
+                function cls(){
+                    for(let i = 0; i < slide.length; i++){
+                        slide[i].style.display = 'none';
+                    }
+                }
+
+                function next(){
+                    cls();
+                    if(current === slide.length-1) current = -1;
+                    current++;
+
+                    slide[current].style.display = 'block';
+                    slide[current].style.opacity = 0.4;
+
+                    var x = 0.4;
+                    var intX = setInterval(function(){
+                        x+=0.1;
+                        slide[current].style.opacity = x;
+                        if(x >= 1) {
+                            clearInterval(intX);
+                            x = 0.4;
+                        }
+                    }, 100);
+
+                }
+
+                function prev(){
+                    cls();
+                    if(current === 0) current = slide.length;
+                    current--;
+
+                    slide[current].style.display = 'block';
+                    slide[current].style.opacity = 0.4;
+
+                    var x = 0.4;
+                    var intX = setInterval(function(){
+                        x+=0.1;
+                        slide[current].style.opacity = x;
+                        if(x >= 1) {
+                            clearInterval(intX);
+                            x = 0.4;
+                        }
+                    }, 100);
+
+                }
+
+                function start(){
+                    cls();
+                    slide[current].style.display = 'block';
+                }
+                start();
+            </script>
+        </body>
+        <!-- end slide show -->
+
+        <!-- footer -->
+        <footer class="footer">
+            <div class="contain">
+              <div class="row">
+                <div class="footer-col">
+                  <h4>About Sanja Putra Widuri</h4>
+                  <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact us</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col">
+                  <h4>Product</h4>
+                  <ul>
+                    <li><a href="#">Chicken Fresh/Frozen</a></li>
+                    <li><a href="#">Chicken Fillet</a></li>
+                    <li><a href="#">MDM Meat</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col">
+                  <h4>Mitra Bisnis</h4>
+                  <ul>
+                    <li><a href="#">PD. Darma Jaya</a></li>
+                    <li><a href="#">Pelni Mart</a></li>
+                    <li><a href="#">Agro Jabar</a></li>
+                    <li><a href="#">PT. Ciomas Adisatwa</a></li>
+                    <li><a href="#">Tanihub</a></li>
+                    <li><a href="#">PT. Kraton Makmur Indonesia Abadi</a></li>
+                    <li><a href="#">CV. Anugrah Mandiri Transport</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </footer>  
+        <!-- end footer -->
+</body>
+</html>
